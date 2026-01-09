@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday NISYYY, MY LADYYYY, /KISS KISS🤍🥳🎉❤️</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@700&family=Nunito:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Nunito', sans-serif;
+            background-color: #ffe6f2;
+            color: #ff66a3;
+            min-height: 100vh;
+            overflow-x: hidden;
+            background-image: radial-gradient(#ffb3d9 2px, transparent 2px);
+            background-size: 30px 30px;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .page {
+            display: none;
+            animation: fadeIn 0.8s ease-out;
+        }
+        
+        .page.active {
+            display: block;
+        }
+        
+        h1 {
+            font-family: 'Comic Neue', cursive;
+            font-size: 3.5rem;
+            margin-bottom: 30px;
+            text-shadow: 3px 3px 0 #ff99cc;
+            color: #ff3399;
+            letter-spacing: 1px;
+        }
+        
+        .hello-kitty {
+            font-size: 4rem;
+            margin: 20px 0;
+            animation: bounce 2s infinite;
+        }
+        
+        .birthday-message {
+            background-color: white;
+            border-radius: 20px;
+            padding: 30px;
+            margin: 30px 0;
+            box-shadow: 0 10px 20px rgba(255, 102, 163, 0.2);
+            border: 5px solid #ff99cc;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .birthday-message:before {
+            content: "";
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            right: -10px;
+            bottom: -10px;
+            background: linear-gradient(45deg, #ff99cc, #ff66a3, #ff3399);
+            z-index: -1;
+            border-radius: 25px;
+        }
+        
+        .btn {
+            background-color: #ff66a3;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1.2rem;
+            border-radius: 50px;
+            cursor: pointer;
+            margin: 15px;
+            transition: all 0.3s;
+            font-family: 'Comic Neue', cursive;
+            box-shadow: 0 5px 0 #ff3399;
+        }
+        
+        .btn:hover {
+            background-color: #ff3399;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 0 #cc0066;
+        }
+        
+        .btn:active {
+            transform: translateY(2px);
+            box-shadow: 0 3px 0 #cc0066;
+        }
+        
+        .kitty-image {
+            width: 150px;
+            margin: 20px auto;
+            display: block;
+        }
+        
+        .letter-container {
+            background-color: #fff0f7;
+            border: 3px dashed #ff99cc;
+            padding: 30px;
+            margin: 30px 0;
+            border-radius: 15px;
+            min-height: 300px;
+            text-align: left;
+            position: relative;
+        }
+        
+        .letter-content {
+            line-height: 1.8;
+            font-size: 1.1rem;
+            color: #660033;
+        }
+        
+        .letter-content p {
+            margin-bottom: 15px;
+        }
+        
+        .envelope {
+            width: 200px;
+            margin: 30px auto;
+            cursor: pointer;
+            transition: transform 0.5s;
+        }
+        
+        .envelope:hover {
+            transform: scale(1.1);
+        }
+        
+        .heart {
+            color: #ff3399;
+            animation: heartbeat 1.5s infinite;
+            display: inline-block;
+        }
+        
+        .sad-kitty {
+            font-size: 5rem;
+            margin: 20px 0;
+            animation: sadShake 2s infinite;
+        }
+        
+        .back-btn {
+            background-color: #ff99cc;
+            margin-top: 30px;
+        }
+        
+        .audio-control {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: white;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 5px 15px rgba(255, 102, 163, 0.3);
+            cursor: pointer;
+            z-index: 100;
+        }
+        
+        .audio-control i {
+            font-size: 1.5rem;
+            color: #ff66a3;
+        }
+        
+        .signature {
+            font-family: 'Comic Neue', cursive;
+            text-align: right;
+            margin-top: 30px;
+            font-size: 1.3rem;
+            color: #ff3399;
+        }
+        
+        .surprise {
+            position: absolute;
+            font-size: 2rem;
+            animation: float 5s infinite;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+        
+        @keyframes heartbeat {
+            0% { transform: scale(1); }
+            5% { transform: scale(1.2); }
+            10% { transform: scale(1.1); }
+            15% { transform: scale(1.3); }
+            50% { transform: scale(1); }
+            100% { transform: scale(1); }
+        }
+        
+        @keyframes sadShake {
+            0%, 100% { transform: rotate(0); }
+            10%, 30%, 50%, 70%, 90% { transform: rotate(-5deg); }
+            20%, 40%, 60%, 80% { transform: rotate(5deg); }
+        }
+        
+        @keyframes float {
+            0% { transform: translateY(0) rotate(0); opacity: 1; }
+            100% { transform: translateY(-100vh) rotate(360deg); opacity: 0; }
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hello-kitty, .sad-kitty {
+                font-size: 3rem;
+            }
+            
+            .btn {
+                padding: 12px 24px;
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Kontrol Musik -->
+    <div class="audio-control" id="musicControl">
+        <i class="fas fa-music"></i>
+    </div>
+    
+    <!-- Halaman 1: Happy Birthday My Lady -->
+    <div class="container">
+        <div class="page active" id="page1">
+            <h1>Happy Birthday My Ladyy🎉🎊💜<span class="heart">💓</span><span class="heart">🩷</span> >_<</h1>
+            
+            <div class="hello-kitty">
+                <i class="fas fa-cat"></i>
+            </div>
+            
+            <div class="birthday-message">
+                <p style="font-size: 1.5rem; margin-bottom: 20px;">A special day for a special person, YOUR BIRTHDAY, HORREEE!🎉 🎀</p>
+                <p style="font-size: 1.2rem;">Click the button to proceed to the next My Lady</p>
+            </div>
+            
+            <button class="btn" id="nextBtn">
+                Next <i class="fas fa-arrow-right"></i>
+            </button>
+            
+            <!-- Elemen kejutan yang muncul secara acak -->
+            <div id="surprises"></div>
+        </div>
+        
+        <!-- Halaman 2: Pilihan membuka surat -->
+        <div class="page" id="page2">
+            <h1>There is a special letter for you!😜😚 <i class="fas fa-envelope"></i></h1>
+            
+            <div class="hello-kitty">
+                <i class="fas fa-cat"></i>
+            </div>
+            
+            <div class="birthday-message">
+                <p style="font-size: 1.5rem; margin-bottom: 20px;">I have a special letter for you My Ladyy!🥳</p>
+                <p style="font-size: 1.2rem;">Want to open it?</p>
+            </div>
+            
+            <div class="envelope" id="envelope">
+                <i class="fas fa-envelope-open-text" style="font-size: 8rem; color: #ff66a3;"></i>
+            </div>
+            
+            <div>
+                <button class="btn" id="openLetterBtn">
+                    <i class="fas fa-envelope-open"></i> Open Mail
+                </button>
+                <button class="btn" id="dontOpenBtn">
+                    <i class="fas fa-times-circle"></i> Don't open the letter
+                </button>
+            </div>
+            
+            <button class="btn back-btn" id="backToPage1">
+                <i class="fas fa-arrow-left"></i> Return
+            </button>
+        </div>
+        
+        <!-- Halaman 3: Surat -->
+        <div class="page" id="page3">
+            <h1>Surat untukmu <i class="fas fa-heart"></i></h1>
+            
+            <div class="letter-container">
+                <div class="letter-content">
+                    <p>Congratulations on your coming of age Babyy, HAPPY BIRTH DAYYY 🎉🎉🥳, I AM SO PROUD TO WATCH YOU GO THROUGH THIS YEAR, until your birthday</p>
+                    
+                    <p>I hope you will get what you want in this year dear and also I wish you the best for your birthday dear, your health, your safety, and everything about you.</p>
+                    
+                    <p>I'm sorry I can only give a gift like this, once again I'm proud that you've gone through everything, sad, disappointed, angry, happy, you've gone through it all until you meet your birthday AND THAT'S VERY GREAT BABYYY.</p>
+                    
+                    <p>Anyway, I love you so much. Thank you for coming to this world, Baby, oh ya one more thing Semangattt To live life you are my strong Girl</p>
+                    
+                    <div class="signature">
+                        <p> With all my feelings for you my Lady💞🤍</p>
+                        <p><i class="fas fa-heart heart"></i> Someone who cares about you🤩, Haris. <i class="fas fa-heart heart"></i></p>
+                    </div>
+                </div>
+            </div>
+            
+            <button class="btn" id="backToPage2FromLetter">
+                <i class="fas fa-arrow-left"></i> Return
+            </button>
+        </div>
+        
+        <!-- Halaman 4: Respons jika tidak mau membuka surat -->
+        <div class="page" id="page4">
+            <h1 style="color: #ff3399;">Why won't you open it, Baby? I'm forcing this<i class="fas fa-frown"></i></h1>
+            
+            <div class="sad-kitty">
+                <i class="fas fa-cat"></i>
+            </div>
+            
+            <div class="birthday-message">
+                <p style="font-size: 1.8rem; margin-bottom: 20px;">"Why don't you want to, don't you like it? :<"</p>
+                <p style="font-size: 1.2rem;">I've made this with all my heart, Babyy 🫠</p>
+            </div>
+            
+            <div>
+                <button class="btn" id="openAnywayBtn">
+                    <i class="fas fa-heart"></i> Alright, I'll open it
+                </button>
+                <button class="btn back-btn" id="backToPage2FromSad">
+                    <i class="fas fa-arrow-left"></i> Return
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Audio untuk backsound dan efek suara -->
+    <audio id="backgroundMusic" loop>
+        <source src="Song.mp3" type="audio/mpeg">
+    </audio>
+    
+    <audio id="openSound">
+        <source src="Song1.mp3" type="audio/mpeg">
+    </audio>
+    
+    <audio id="pageTurnSound">
+        <source src="Song1.mp3" type="audio/mpeg">
+    </audio>
+
+    <script>
+        // Elemen DOM
+        const pages = document.querySelectorAll('.page');
+        const nextBtn = document.getElementById('nextBtn');
+        const openLetterBtn = document.getElementById('openLetterBtn');
+        const dontOpenBtn = document.getElementById('dontOpenBtn');
+        const backToPage1 = document.getElementById('backToPage1');
+        const backToPage2FromLetter = document.getElementById('backToPage2FromLetter');
+        const backToPage2FromSad = document.getElementById('backToPage2FromSad');
+        const openAnywayBtn = document.getElementById('openAnywayBtn');
+        const envelope = document.getElementById('envelope');
+        const musicControl = document.getElementById('musicControl');
+        const backgroundMusic = document.getElementById('backgroundMusic');
+        const openSound = document.getElementById('openSound');
+        const pageTurnSound = document.getElementById('pageTurnSound');
+        const surprisesContainer = document.getElementById('surprises');
+        
+        // Fungsi untuk mengganti halaman
+        function goToPage(pageId) {
+            pages.forEach(page => {
+                page.classList.remove('active');
+            });
+            document.getElementById(pageId).classList.add('active');
+            pageTurnSound.currentTime = 0;
+            pageTurnSound.play().catch(e => console.log("Autoplay diblokir browser"));
+        }
+        
+        // Event Listeners
+        nextBtn.addEventListener('click', () => {
+            goToPage('page2');
+        });
+        
+        openLetterBtn.addEventListener('click', () => {
+            openSound.currentTime = 0;
+            openSound.play();
+            goToPage('page3');
+        });
+        
+        dontOpenBtn.addEventListener('click', () => {
+            goToPage('page4');
+        });
+        
+        backToPage1.addEventListener('click', () => {
+            goToPage('page1');
+        });
+        
+        backToPage2FromLetter.addEventListener('click', () => {
+            goToPage('page2');
+        });
+        
+        backToPage2FromSad.addEventListener('click', () => {
+            goToPage('page2');
+        });
+        
+        openAnywayBtn.addEventListener('click', () => {
+            openSound.currentTime = 0;
+            openSound.play();
+            goToPage('page3');
+        });
+        
+        envelope.addEventListener('click', () => {
+            openSound.currentTime = 0;
+            openSound.play();
+            goToPage('page3');
+        });
+        
+        // Kontrol musik
+        let musicPlaying = false;
+        
+        musicControl.addEventListener('click', () => {
+            if (musicPlaying) {
+                backgroundMusic.pause();
+                musicControl.innerHTML = '<i class="fas fa-music"></i>';
+                musicControl.style.backgroundColor = 'white';
+            } else {
+                backgroundMusic.play().catch(e => {
+                    console.log("Autoplay diblokir browser, but user can click to play");
+                });
+                musicControl.innerHTML = '<i class="fas fa-pause"></i>';
+                musicControl.style.backgroundColor = '#ffccdd';
+            }
+            musicPlaying = !musicPlaying;
+        });
+        
+        // Coba putar musik otomatis (dengan penanganan error)
+        window.addEventListener('click', () => {
+            if (!musicPlaying) {
+                backgroundMusic.play().then(() => {
+                    musicPlaying = true;
+                    musicControl.innerHTML = '<i class="fas fa-pause"></i>';
+                    musicControl.style.backgroundColor = '#ffccdd';
+                }).catch(e => {
+                    console.log("Autoplay diblokir, user harus mengklik tombol play");
+                });
+            }
+        }, { once: true });
+        
+        // Buat efek kejutan (hati, bintang, dll) yang muncul secara acak
+        function createSurprise() {
+            const surprise = document.createElement('div');
+            surprise.className = 'surprise';
+            
+            // Pilih ikon acak
+            const icons = ['💖', '🎀', '🎂', '🎁', '🌸', '🦄', '🍰', '🎈', '✨'];
+            const randomIcon = icons[Math.floor(Math.random() * icons.length)];
+            
+            surprise.textContent = randomIcon;
+            surprise.style.left = Math.random() * 100 + 'vw';
+            surprise.style.fontSize = (Math.random() * 2 + 1.5) + 'rem';
+            surprise.style.animationDuration = (Math.random() * 3 + 4) + 's';
+            surprise.style.opacity = '0.8';
+            
+            surprisesContainer.appendChild(surprise);
+            
+            // Hapus elemen setelah animasi selesai
+            setTimeout(() => {
+                surprise.remove();
+            }, 5000);
+        }
+        
+        // Buat kejutan secara berkala
+        setInterval(createSurprise, 1500);
+        
+        // Buat beberapa kejutan awal
+        for (let i = 0; i < 5; i++) {
+            setTimeout(() => createSurprise(), i * 300);
+        }
+        
+        // Tambahkan animasi pada judul
+        const title = document.querySelector('h1');
+        title.addEventListener('mouseover', () => {
+            title.style.transform = 'scale(1.05)';
+            title.style.transition = 'transform 0.3s';
+        });
+        
+        title.addEventListener('mouseout', () => {
+            title.style.transform = 'scale(1)';
+        });
+        
+        console.log("Happy birthday! This website was created with love for you, my Lady. 💖");
+    </script>
+</body>
+</html>
